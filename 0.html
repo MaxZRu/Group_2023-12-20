@@ -1,11 +1,65 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #place {
+            width: 350px;
+            height: 350px;
+            border: 1px solid;
+        }
+
+        button {
+            width: 100px;
+            height: 100px;
+            border: 1px solid;
+        }
+    </style>
 </head>
+
 <body>
-    Максим Валерьевич
+    Ход игрока: <span id="player">X</span>
+
+    <div id="place">
+        <button>&nbsp;</button>
+        <button>&nbsp;</button>
+        <button>&nbsp;</button>
+        <button>&nbsp;</button>
+        <button>&nbsp;</button>
+        <button>&nbsp;</button>
+        <button>&nbsp;</button>
+        <button>&nbsp;</button>
+        <button>&nbsp;</button>
+    </div>
+
 </body>
+
+<script>
+
+    player_text = document.querySelector("#player")
+
+    bt_all = document.querySelectorAll("button")
+
+    bt_all.forEach(bt => {
+        bt.addEventListener("click",
+            function () {
+                bt.innerText = player_text.innerText
+                bt.setAttribute("disabled",true)
+                if (player_text.innerText=="X") {
+                    player_text.innerText = "0"
+                } else {
+                    player_text.innerText = "X"
+                }
+                
+            })
+
+    });
+
+
+
+</script>
+
 </html>
